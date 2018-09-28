@@ -1,3 +1,5 @@
+const { name } = require('./package.json');
+
 module.exports = {
   pathPrefix: process.env.CI ? `/${name}` : `/`,
   siteMetadata: {
@@ -5,8 +7,20 @@ module.exports = {
     title: `Gatsby Default (Blog) Starter`,
   },
   plugins: [
-    'gatsby-plugin-react-next',
     'gatsby-plugin-catch-links',
+    'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Blog Starter',
+        short_name: 'Blog',
+        start_url: '/',
+        background_color: '#fff',
+        theme_color: '#663399',
+        display: 'minimal-ui',
+        icon: 'assets/logo.jpg',
+      }
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {

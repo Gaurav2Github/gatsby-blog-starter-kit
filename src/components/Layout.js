@@ -16,14 +16,16 @@ export default class Template extends React.Component {
     const isRoot = location.pathname === '/';
 
     return (
-      <div>
+      <React.Fragment>
         <Helmet
           title="Gatsby Default (Blog) Starter"
           meta={[
             { name: 'description', content: 'Sample' },
             { name: 'keywords', content: 'sample, something' },
           ]}
-        />
+        >
+          <html lang="en" />
+        </Helmet>
         <div
           style={{
             background: `rebeccapurple`,
@@ -58,9 +60,9 @@ export default class Template extends React.Component {
             paddingTop: 0,
           }}
         >
-          {this.props.children()}
+          {this.props.children}
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
